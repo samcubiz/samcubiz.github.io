@@ -167,6 +167,9 @@
 }
 
 #add-til {
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
   margin-top: 10px;
   background: transparent;
   border: 1px solid var(--accent);
@@ -174,7 +177,14 @@
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
+}
+
+/* Fade in on hover */
+#today-i-learned .card:hover #add-til {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 #add-til:hover {
