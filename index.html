@@ -62,37 +62,35 @@
 }
 
 #animated-logo {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  animation: float 3s ease-in-out infinite alternate,
-             shake 0.5s ease-in-out 5s infinite,
-             glowCycle 6s ease-in-out infinite;
-  box-shadow: 0 0 40px 10px #3b82f6; /* blue ring same size */
-  transition: transform 0.3s ease;
+  animation: spinBounce 4s ease-in-out infinite, glowCycle 5s linear infinite;
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Floating motion */
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
+#animated-logo:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 40px rgba(88, 166, 255, 0.8);
 }
 
-/* Occasional playful shake */
-@keyframes shake {
-  0%, 100% { transform: translate(0, -10px) rotate(0deg); }
-  20% { transform: translate(-5px, -10px) rotate(-3deg); }
-  40% { transform: translate(5px, -10px) rotate(3deg); }
-  60% { transform: translate(-3px, -10px) rotate(-2deg); }
-  80% { transform: translate(3px, -10px) rotate(2deg); }
+/* Spin + bounce animation */
+@keyframes spinBounce {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(90deg) translateY(-10px); }
+  50% { transform: rotate(180deg) translateY(0); }
+  75% { transform: rotate(270deg) translateY(-10px); }
+  100% { transform: rotate(360deg) translateY(0); }
 }
 
-/* Smooth color cycling for glow */
+/* Soft blue glow cycle */
 @keyframes glowCycle {
-  0%   { box-shadow: 0 0 40px 10px #3b82f6; }  /* blue */
-  33%  { box-shadow: 0 0 40px 10px #06b6d4; }  /* cyan */
-  66%  { box-shadow: 0 0 40px 10px #8b5cf6; }  /* soft purple */
-  100% { box-shadow: 0 0 40px 10px #3b82f6; }  /* back to blue */
+  0% { box-shadow: 0 0 15px #58a6ff; }
+  25% { box-shadow: 0 0 15px #91caff; }
+  50% { box-shadow: 0 0 15px #5ab0ff; }
+  75% { box-shadow: 0 0 15px #8bd6ff; }
+  100% { box-shadow: 0 0 15px #58a6ff; }
 }
 
 /* === Animated Logo (Float + Glow + Gentle Shake) === */
