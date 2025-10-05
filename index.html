@@ -93,7 +93,7 @@
   100% { box-shadow: 0 0 15px #58a6ff; }
 }
 
-/* === Animated Logo (Smooth Floaty Version) === */
+/* === Animated Logo (Float + Glow + Gentle Shake) === */
 .logo-container {
   display: flex;
   justify-content: center;
@@ -106,32 +106,50 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  animation: floatySpin 8s ease-in-out infinite, glowCycle 6s ease-in-out infinite;
+  opacity: 0;
+  animation:
+    fadeIn 2s ease-in-out forwards,
+    floaty 6s ease-in-out infinite,
+    glowCycle 6s ease-in-out infinite,
+    shake 8s ease-in-out infinite;
   box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 #animated-logo:hover {
-  transform: scale(1.12) rotate(3deg);
+  transform: scale(1.12);
   box-shadow: 0 0 40px rgba(88, 166, 255, 0.8);
 }
 
-/* Gentle floating spin animation */
-@keyframes floatySpin {
-  0% { transform: rotate(0deg) translateY(0); }
-  25% { transform: rotate(90deg) translateY(-8px); }
-  50% { transform: rotate(180deg) translateY(0); }
-  75% { transform: rotate(270deg) translateY(8px); }
-  100% { transform: rotate(360deg) translateY(0); }
+/* Fade in on page load */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* Soft color glow cycle */
+/* Gentle floating motion */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Soft glow breathing effect */
 @keyframes glowCycle {
   0%   { box-shadow: 0 0 20px rgba(88, 166, 255, 0.3); }
   25%  { box-shadow: 0 0 25px rgba(88, 166, 255, 0.5); }
   50%  { box-shadow: 0 0 30px rgba(88, 166, 255, 0.6); }
   75%  { box-shadow: 0 0 25px rgba(88, 166, 255, 0.4); }
   100% { box-shadow: 0 0 20px rgba(88, 166, 255, 0.3); }
+}
+
+/* Gentle shake every few seconds */
+@keyframes shake {
+  0%, 85%, 100% { transform: translateX(0); }
+  88% { transform: translateX(-3px); }
+  90% { transform: translateX(3px); }
+  92% { transform: translateX(-3px); }
+  94% { transform: translateX(3px); }
+  96% { transform: translateX(0); }
 }
 
     @keyframes fadeIn {
