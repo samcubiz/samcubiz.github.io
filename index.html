@@ -142,21 +142,31 @@
   .card:hover { background: var(--card-hover); }
 
   .card h3 { margin-bottom: 10px; }
-/* === Today I Learned + Fun Fact Section Styles === */
-#fun-fact, .today-learned {
+
+/* === Today I Learned + Fun Fact === */
+#today-i-learned, #fun-fact {
   text-align: center;
-}
-
-#fun-fact .card p {
-  font-style: italic;
-  color: var(--muted);
-}
-
-/* Optional: subtle fade-in for these sections */
-#fun-fact .card, .today-learned .card {
   animation: fadeIn 1.5s ease-in-out;
 }
 
+#today-i-learned .card, #fun-fact .card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+#today-i-learned .card:hover, #fun-fact .card:hover {
+  background: var(--card-hover);
+}
+
+#til-text, #fact-text {
+  color: var(--muted);
+  font-style: italic;
+}
+
+  
   .badges span {
     display: inline-block;
     background: var(--card-bg);
@@ -203,20 +213,10 @@
     </div>
   </section>
 
-  <section>
-    <h2>📚 Currently Learning</h2>
-    <div class="badges">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>GitHub</span>
-      <span>AI Prompts</span>
-    </div>
-  </section>
-<section>
+  <section id="today-i-learned">
   <h2>🧠 Today I Learned</h2>
   <div class="card">
-    <p><strong>October 5, 2025:</strong> Learned how to sync CSS animations — making my logo ring glow and shake at the perfect rhythm ⚡</p>
-    <p>Next goal — add subtle transitions to my project cards for a smoother user experience 🚀</p>
+    <p id="til-text"></p>
   </div>
 </section>
 
@@ -228,6 +228,19 @@
 </section>
 
 <script>
+  // 🧠 Array of "Today I Learned" notes
+  const tilNotes = [
+    "Learned how to sync animations perfectly — now my logo feels alive ✨",
+    "Discovered how to make a clean GitHub Pages site with just HTML & CSS 🚀",
+    "Understood the magic of CSS transitions — subtle but powerful 🎨",
+    "Figured out how to center anything with Flexbox (finally 😅)",
+    "Tweaked my favicon animations — now it glows smoothly 💡",
+    "Learned how to add randomness to my site using a tiny JavaScript trick 🧩",
+    "CSS variables make color themes so much easier to manage 🌈",
+    "Experimented with hover effects — little details, big impact ⚡"
+  ];
+
+  // 🎲 Array of fun/random thoughts
   const facts = [
     "Every great dev started with ‘Hello World’.",
     "CSS animations are little spells for your website ✨",
@@ -237,10 +250,15 @@
     "A glowing logo can turn a static page into a story 💡"
   ];
 
-  // Randomly pick one
+  // 🧠 Choose a TIL based on the current day (rotates daily)
+  const dayIndex = new Date().getDate() % tilNotes.length;
+  document.getElementById("til-text").textContent = tilNotes[dayIndex];
+
+  // 🎲 Random fact each reload
   document.getElementById("fact-text").textContent =
     facts[Math.floor(Math.random() * facts.length)];
 </script>
+
 
   <section>
     <h2>🌐 Connect</h2>
