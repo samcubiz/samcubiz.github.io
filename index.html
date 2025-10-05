@@ -106,10 +106,11 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
+  border: 6px solid #3b82f6; /* solid blue ring — adjust thickness as needed */
   animation: float 3s ease-in-out infinite alternate,
-             shake 0.5s ease-in-out 5s infinite,
-             glowCycle 6s ease-in-out infinite;
-  box-shadow: 0 0 40px 10px #3b82f6; /* blue ring same size */
+             shake 0.5s ease-in-out 8s infinite,
+             ringCycle 6s ease-in-out infinite;
+  box-shadow: 0 0 20px 6px #3b82f6; /* soft glow around it */
   transition: transform 0.3s ease;
 }
 
@@ -119,23 +120,22 @@
   to { transform: translateY(-10px); }
 }
 
-/* Occasional playful shake */
+/* Playful shake (every few seconds) */
 @keyframes shake {
   0%, 100% { transform: translate(0, -10px) rotate(0deg); }
-  20% { transform: translate(-5px, -10px) rotate(-3deg); }
-  40% { transform: translate(5px, -10px) rotate(3deg); }
+  20% { transform: translate(-4px, -10px) rotate(-3deg); }
+  40% { transform: translate(4px, -10px) rotate(3deg); }
   60% { transform: translate(-3px, -10px) rotate(-2deg); }
   80% { transform: translate(3px, -10px) rotate(2deg); }
 }
 
-/* Smooth color cycling for glow */
-@keyframes glowCycle {
-  0%   { box-shadow: 0 0 40px 10px #3b82f6; }  /* blue */
-  33%  { box-shadow: 0 0 40px 10px #06b6d4; }  /* cyan */
-  66%  { box-shadow: 0 0 40px 10px #8b5cf6; }  /* soft purple */
-  100% { box-shadow: 0 0 40px 10px #3b82f6; }  /* back to blue */
+/* Smooth color cycling for the ring itself */
+@keyframes ringCycle {
+  0%   { border-color: #3b82f6; box-shadow: 0 0 20px 6px #3b82f6; } /* blue */
+  33%  { border-color: #06b6d4; box-shadow: 0 0 20px 6px #06b6d4; } /* cyan */
+  66%  { border-color: #8b5cf6; box-shadow: 0 0 20px 6px #8b5cf6; } /* purple */
+  100% { border-color: #3b82f6; box-shadow: 0 0 20px 6px #3b82f6; } /* back to blue */
 }
-
 
 #animated-logo:hover {
   transform: scale(1.12);
