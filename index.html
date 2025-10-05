@@ -142,6 +142,20 @@
   .card:hover { background: var(--card-hover); }
 
   .card h3 { margin-bottom: 10px; }
+/* === Today I Learned + Fun Fact Section Styles === */
+#fun-fact, .today-learned {
+  text-align: center;
+}
+
+#fun-fact .card p {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Optional: subtle fade-in for these sections */
+#fun-fact .card, .today-learned .card {
+  animation: fadeIn 1.5s ease-in-out;
+}
 
   .badges span {
     display: inline-block;
@@ -198,6 +212,35 @@
       <span>AI Prompts</span>
     </div>
   </section>
+<section>
+  <h2>🧠 Today I Learned</h2>
+  <div class="card">
+    <p><strong>October 5, 2025:</strong> Learned how to sync CSS animations — making my logo ring glow and shake at the perfect rhythm ⚡</p>
+    <p>Next goal — add subtle transitions to my project cards for a smoother user experience 🚀</p>
+  </div>
+</section>
+
+<section id="fun-fact">
+  <h2>🎲 Random Thought</h2>
+  <div class="card">
+    <p id="fact-text"></p>
+  </div>
+</section>
+
+<script>
+  const facts = [
+    "Every great dev started with ‘Hello World’.",
+    "CSS animations are little spells for your website ✨",
+    "Debugging is like solving a puzzle… that you made yourself 🧩",
+    "Learning by doing is the fastest way to level up 🚀",
+    "Sometimes the simplest design looks the most professional.",
+    "A glowing logo can turn a static page into a story 💡"
+  ];
+
+  // Randomly pick one
+  document.getElementById("fact-text").textContent =
+    facts[Math.floor(Math.random() * facts.length)];
+</script>
 
   <section>
     <h2>🌐 Connect</h2>
