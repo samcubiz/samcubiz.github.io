@@ -52,7 +52,48 @@
       color: var(--accent);
       animation: fadeIn 2s ease-in-out, float 3s ease-in-out infinite alternate;
     }
-   
+    /* === Animated Logo (Dark Theme Style) === */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#animated-logo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite alternate,
+             shake 0.5s ease-in-out 5s infinite,
+             glowCycle 6s ease-in-out infinite;
+  box-shadow: 0 0 40px 10px #3b82f6; /* blue ring same size */
+  transition: transform 0.3s ease;
+}
+
+/* Floating motion */
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+/* Occasional playful shake */
+@keyframes shake {
+  0%, 100% { transform: translate(0, -10px) rotate(0deg); }
+  20% { transform: translate(-5px, -10px) rotate(-3deg); }
+  40% { transform: translate(5px, -10px) rotate(3deg); }
+  60% { transform: translate(-3px, -10px) rotate(-2deg); }
+  80% { transform: translate(3px, -10px) rotate(2deg); }
+}
+
+/* Smooth color cycling for glow */
+@keyframes glowCycle {
+  0%   { box-shadow: 0 0 40px 10px #3b82f6; }  /* blue */
+  33%  { box-shadow: 0 0 40px 10px #06b6d4; }  /* cyan */
+  66%  { box-shadow: 0 0 40px 10px #8b5cf6; }  /* soft purple */
+  100% { box-shadow: 0 0 40px 10px #3b82f6; }  /* back to blue */
+}
 
 /* === Animated Logo (Float + Glow + Gentle Shake) === */
 .logo-container {
