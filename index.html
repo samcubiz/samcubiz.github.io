@@ -166,6 +166,22 @@
   font-style: italic;
 }
 
+#add-til {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#add-til:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
   
   .badges span {
     display: inline-block;
@@ -220,6 +236,14 @@
   </div>
 </section>
 
+<section id="today-i-learned">
+  <h2>🧠 Today I Learned</h2>
+  <div class="card">
+    <p id="til-text"></p>
+    <button id="add-til">📝 Add a new note</button>
+  </div>
+</section>
+
 <section id="fun-fact">
   <h2>🎲 Random Thought</h2>
   <div class="card">
@@ -228,8 +252,8 @@
 </section>
 
 <script>
-  // 🧠 Array of "Today I Learned" notes
-  const tilNotes = [
+  // 🧠 Default "Today I Learned" notes
+  const defaultNotes = [
     "Learned how to sync animations perfectly — now my logo feels alive ✨",
     "Discovered how to make a clean GitHub Pages site with just HTML & CSS 🚀",
     "Understood the magic of CSS transitions — subtle but powerful 🎨",
@@ -240,7 +264,7 @@
     "Experimented with hover effects — little details, big impact ⚡"
   ];
 
-  // 🎲 Array of fun/random thoughts
+  // 🎲 Fun/random thoughts
   const facts = [
     "Every great dev started with ‘Hello World’.",
     "CSS animations are little spells for your website ✨",
@@ -250,13 +274,24 @@
     "A glowing logo can turn a static page into a story 💡"
   ];
 
-  // 🧠 Choose a TIL based on the current day (rotates daily)
-  const dayIndex = new Date().getDate() % tilNotes.length;
-  document.getElementById("til-text").textContent = tilNotes[dayIndex];
+  // 🧠 Load stored notes or fallback to defaults
+  const savedNotes = JSON.parse(localStorage.getItem("tilNotes")) || defaultNotes;
+  const dayIndex = new Date().getDate() % savedNotes.length;
+  document.getElementById("til-text").textContent = savedNotes[dayIndex];
 
   // 🎲 Random fact each reload
   document.getElementById("fact-text").textContent =
     facts[Math.floor(Math.random() * facts.length)];
+
+  // 📝 Add new note button
+  document.getElementById("add-til").addEventListener("click", () => {
+    const newNote = prompt("Write your new 'Today I Learned' note:");
+    if (newNote && newNote.trim() !== "") {
+      savedNotes.push(newNote.trim());
+      localStorage.setItem("tilNotes", JSON.stringify(savedNotes));
+      alert("Note added! It will appear on a future day. 🧠");
+    }
+  });
 </script>
 
 
