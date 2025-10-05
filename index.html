@@ -103,18 +103,39 @@
 }
 
 #animated-logo {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  opacity: 0;
-  animation:
-    fadeIn 2s ease-in-out forwards,
-    floaty 6s ease-in-out infinite,
-    glowCycle 6s ease-in-out infinite,
-    shake 15s ease-in-out infinite;
-  box-shadow: 0 0 45px rgba(88, 166, 255, 0.35);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: float 3s ease-in-out infinite alternate,
+             shake 0.5s ease-in-out 5s infinite,
+             glowCycle 6s ease-in-out infinite;
+  box-shadow: 0 0 40px 10px #3b82f6; /* blue ring same size */
+  transition: transform 0.3s ease;
 }
+
+/* Floating motion */
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+/* Occasional playful shake */
+@keyframes shake {
+  0%, 100% { transform: translate(0, -10px) rotate(0deg); }
+  20% { transform: translate(-5px, -10px) rotate(-3deg); }
+  40% { transform: translate(5px, -10px) rotate(3deg); }
+  60% { transform: translate(-3px, -10px) rotate(-2deg); }
+  80% { transform: translate(3px, -10px) rotate(2deg); }
+}
+
+/* Smooth color cycling for glow */
+@keyframes glowCycle {
+  0%   { box-shadow: 0 0 40px 10px #3b82f6; }  /* blue */
+  33%  { box-shadow: 0 0 40px 10px #06b6d4; }  /* cyan */
+  66%  { box-shadow: 0 0 40px 10px #8b5cf6; }  /* soft purple */
+  100% { box-shadow: 0 0 40px 10px #3b82f6; }  /* back to blue */
+}
+
 
 #animated-logo:hover {
   transform: scale(1.12);
