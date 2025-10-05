@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samcubiz | Portfolio</title>
+  <title>Sam | Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
+    h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  animation: fadeIn 2s ease-in-out, float 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
     :root {
       --bg: #0d1117;
       --card-bg: #161b22;
