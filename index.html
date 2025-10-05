@@ -111,14 +111,23 @@
     fadeIn 2s ease-in-out forwards,
     floaty 6s ease-in-out infinite,
     glowCycle 6s ease-in-out infinite,
-    shake 8s ease-in-out infinite;
-  box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
+    shake 15s ease-in-out infinite;
+  box-shadow: 0 0 45px rgba(88, 166, 255, 0.35);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 #animated-logo:hover {
   transform: scale(1.12);
-  box-shadow: 0 0 40px rgba(88, 166, 255, 0.8);
+  box-shadow: 0 0 70px rgba(88, 166, 255, 0.6);
+}
+
+/* Extended soft blue glow */
+@keyframes glowCycle {
+  0%   { box-shadow: 0 0 40px rgba(88, 166, 255, 0.25); }
+  25%  { box-shadow: 0 0 55px rgba(88, 166, 255, 0.4); }
+  50%  { box-shadow: 0 0 70px rgba(88, 166, 255, 0.45); }
+  75%  { box-shadow: 0 0 55px rgba(88, 166, 255, 0.35); }
+  100% { box-shadow: 0 0 40px rgba(88, 166, 255, 0.25); }
 }
 
 /* Fade in on page load */
