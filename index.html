@@ -115,30 +115,6 @@
     font-size: 1.1rem;
   }
 
-.side-by-side {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 30px;
-  padding: 40px 20px;
-  flex-wrap: wrap; /* makes it responsive on small screens */
-}
-
-.side-by-side .left,
-.side-by-side .right {
-  flex: 1;
-  min-width: 300px;
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: 12px;
-  transition: background 0.3s ease;
-}
-
-.side-by-side .left:hover,
-.side-by-side .right:hover {
-  background: var(--card-hover);
-}
-
   
   section {
     padding: 40px 20px;
@@ -277,21 +253,13 @@
     </div>
   </section>
 
-  <section class="side-by-side">
-  <div class="left">
-    <h2>🧠 Today I Learned</h2>
-    <p>Small daily notes about new things I’m exploring in web dev and AI!</p>
-  </div>
-
-  <div class="right">
-    <h2>📈 GitHub Streak</h2>
+  <section id="today-i-learned">
+  <h2>🧠 Today I Learned</h2>
   <div class="card">
-    <a href="https://git.io/streak-stats" target="_blank">
-      <img src="https://streak-stats.demolab.com?user=sam-codes&theme=tokyonight" alt="GitHub Streak">
-    </a>
-  </div>
+    <p id="til-text"></p>
   </div>
 </section>
+
 
 
 <section id="today-i-learned">
