@@ -47,7 +47,7 @@
     height: 160px;
     margin: 0 auto 10px;
     border-radius: 50%;
-    border: 5px solid #3b82f6; /* slimmer ring */
+    border: 5px solid #3b82f6; /* slimmer border */
     box-shadow: 0 0 20px 5px rgba(59,130,246,0.25);
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    animation: shakeCycle 30s ease-in-out infinite; /* shake briefly, then rest */
+    animation: shakeCycle 21s ease-in-out infinite; /* synced: 10s wait + 1s shake + 10s wait */
     transition: transform 0.3s ease;
   }
 
@@ -88,7 +88,7 @@
     to { transform: translateY(-10px); }
   }
 
-  /* Slower ring color cycle */
+  /* Slower, smoother ring color cycle */
   @keyframes ringCycle {
     0%   { border-color: #3b82f6; box-shadow: 0 0 20px 5px rgba(59,130,246,0.25); }
     33%  { border-color: #06b6d4; box-shadow: 0 0 22px 5px rgba(6,182,212,0.22); }
@@ -96,16 +96,16 @@
     100% { border-color: #3b82f6; box-shadow: 0 0 20px 5px rgba(59,130,246,0.25); }
   }
 
-  /* Shake briefly, then stay still for the rest of the 30s */
+  /* Shake briefly (~1s) every 21s cycle */
   @keyframes shakeCycle {
-    0%, 90%, 100% { transform: translateX(0); }
-    91% { transform: translateX(-3px); }
-    92% { transform: translateX(3px); }
-    93% { transform: translateX(-2px); }
-    94% { transform: translateX(2px); }
-    95% { transform: translateX(-1px); }
-    96% { transform: translateX(1px); }
-    97% { transform: translateX(0); }
+    0%, 47%, 100% { transform: translateX(0); } /* calm period */
+    48% { transform: translateX(-3px); }
+    49% { transform: translateX(3px); }
+    50% { transform: translateX(-2px); }
+    51% { transform: translateX(2px); }
+    52% { transform: translateX(-1px); }
+    53% { transform: translateX(1px); }
+    54% { transform: translateX(0); } /* back to rest */
   }
 
   /* === Other Page Styles === */
