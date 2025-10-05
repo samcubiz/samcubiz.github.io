@@ -52,7 +52,46 @@
       color: var(--accent);
       animation: fadeIn 2s ease-in-out, float 3s ease-in-out infinite alternate;
     }
+/* === Animated Logo === */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
 
+#animated-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  animation: spinBounce 4s ease-in-out infinite, glowCycle 5s linear infinite;
+  box-shadow: 0 0 20px rgba(100, 150, 255, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#animated-logo:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 40px rgba(255, 100, 255, 0.8);
+}
+
+/* Spin + bounce animation */
+@keyframes spinBounce {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(90deg) translateY(-10px); }
+  50% { transform: rotate(180deg) translateY(0); }
+  75% { transform: rotate(270deg) translateY(-10px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+/* Color glow cycle */
+@keyframes glowCycle {
+  0% { box-shadow: 0 0 15px #5a8cff; }
+  25% { box-shadow: 0 0 15px #ff6ad5; }
+  50% { box-shadow: 0 0 15px #8aff7c; }
+  75% { box-shadow: 0 0 15px #ffd65a; }
+  100% { box-shadow: 0 0 15px #5a8cff; }
+}
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -119,11 +158,14 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://github.com/samcubiz.png" alt="Sam Profile Picture">
-    <h1>👋 Hey, I’m Sam</h1>
-    <p>Beginner dev • Learning with prompts • Building small apps 🚀</p>
-  </header>
+ <header>
+  <div class="logo-container">
+    <img src="favicon.png" alt="Sam Logo" id="animated-logo">
+  </div>
+
+  <h1>👋 Hey, I’m Sam</h1>
+  <p>Beginner dev • Learning with prompts • Building small apps 🚀</p>
+</header>
 
   <section>
     <h2>🚀 Projects</h2>
