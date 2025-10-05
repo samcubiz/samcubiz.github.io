@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samcubiz | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-hover: #1f2937;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #161b22;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid #21262d;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    /* Project cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Learning badges */
+    .badges span {
+      display: inline-block;
+      background: var(--card-bg);
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      color: var(--muted);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://github.com/samcubiz.png" alt="Samcubiz Profile Picture">
+    <h1>👋 Hey, I’m Samcubiz</h1>
+    <p>Beginner dev • Learning with prompts • Building small apps 🚀</p>
+  </header>
+
+  <section>
+    <h2>🚀 Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3><a href="https://github.com/samcubiz/my-first-app">My First App</a></h3>
+        <p>My very first experiment building an app using prompts.</p>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/samcubiz/FinTrack">FinTrack</a></h3>
+        <p>A simple finance tracker I’m exploring (work in progress).</p>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/samcubiz/EchoHub">EchoHub</a></h3>
+        <p>An experimental project repo for practice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📚 Currently Learning</h2>
+    <div class="badges">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>GitHub</span>
+      <span>AI Prompts</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌐 Connect</h2>
+    <p>
+      <a href="https://github.com/samcubiz">GitHub</a> |
+      <a href="https://samcubiz.github.io">Website</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>⭐ Thanks for visiting my site! More coming soon as I learn and build 🚀</p>
+  </footer>
+</body>
+</html>
